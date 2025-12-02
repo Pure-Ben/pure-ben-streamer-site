@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamer Media Kit - Pure_Ben</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- NEW: Load Orbitron Font for Headers -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font family and set dark mode base colors */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A1A; /* Near Black Background */
+            color: #E5E7EB; /* Light text color */
+        }
+        /* NEW: Apply Orbitron to Titles, Headings, and Nav for a futuristic/gaming look */
+        h1, h2, h3, nav a {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Style for the primary accent color (Gold) */
+        .brand-accent {
+            background-color: theme('colors.primary.DEFAULT');
+            color: #1A1A1A; /* Dark text on bright Gold (Default text color inside header) */
+        }
+        /* Style for main headings and strong text (Light Gray/White) */
+        .text-secondary {
+            color: #F3FF4F6;
+        }
+        /* Card Background Color for dark mode */
+        .card-bg {
+            background-color: #2D3748; /* Dark Slate Gray */
+            color: #F3F4F6;
+        }
+        /* Custom card style for stats with smooth hover effect */
+        .stat-card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom CSS for Gradient Text */
+        .gradient-text {
+            /* Text-specific properties for gradient */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; 
+            /* Linear Gradient from Gold (#eac80d) to Aqua (#88ffed) */
+            background-image: linear-gradient(to right, #eac80d, #88ffed);
+        }
+    </style>
+    <script>
+        // Customizing Tailwind to define the primary (Gold) and secondary (Dark) colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary: Gold - #eac80d
+                        'primary': {
+                            DEFAULT: '#eac80d', 
+                            light: '#F8E87D',
+                            dark: '#A68D09',
+                        },
+                        // Secondary: Dark background/accents
+                        'secondary': {
+                            DEFAULT: '#1A1A1A', // Near Black background
+                            light: '#2D3748', // Dark Slate Gray for cards/nav
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-secondary-DEFAULT">
+
+    <!-- Header & Brand Identity (Gold Accent) -->
+    <header class="brand-accent py-16 px-4 sm:px-6 lg:px-8 shadow-xl">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight">
+                <!-- Applied Gradient Class here -->
+                <span class="block gradient-text">PURE_BEN</span>
+                <!-- Applied text-white class here -->
+                <span class="block text-xl sm:text-2xl mt-2 font-light text-white">Content Creator Media Kit 2024</span>
+            </h1>
+            <!-- Changed text color to white -->
+            <p class="mt-4 text-lg font-light text-white opacity-90">
+                A highly-engaged audience focused on competitive gaming, tech reviews, and authentic entertainment.
+            </p>
+        </div>
+    </header>
+
+    <!-- Navigation (Simple Menu) - Sticky on Scroll -->
+    <nav class="bg-secondary-light sticky top-0 z-10 shadow-lg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-12">
+                <div class="flex space-x-6">
+                    <a href="#overview" class="text-gray-200 hover:text-primary-DEFAULT px-3 py-3 text-sm font-medium transition duration-150 ease-in-out">Brand</a>
+                    <a href="#audience" class="text-gray-200 hover:text-primary-DEFAULT px-3 py-3 text-sm font-medium transition duration-150 ease-in-out">Demographics</a>
+                    <a href="#reach" class="text-gray-200 hover:text-primary-DEFAULT px-3 py-3 text-sm font-medium transition duration-150 ease-in-out">Metrics</a>
+                    <a href="#opportunities" class="text-gray-200 hover:text-primary-DEFAULT px-3 py-3 text-sm font-medium transition duration-150 ease-in-out">Packages</a>
+                    <a href="#contact" class="text-gray-200 hover:text-primary-DEFAULT px-3 py-3 text-sm font-medium transition duration-150 ease-in-out">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- 1. Brand Overview -->
+        <section id="overview" class="mb-12 pt-8">
+            <h2 class="text-3xl font-bold text-primary mb-4 border-b-2 border-primary pb-2">I. The Pure_Ben Brand</h2>
+            
+            <!-- START: Image Placeholder - Profile/Logo -->
+            <div class="flex justify-center mb-6">
+                <div class="w-32 h-32 bg-secondary-light border-4 border-primary rounded-full flex items-center justify-center text-sm font-semibold text-primary-light italic shadow-2xl">
+                    [Your Logo/Avatar Here]
+                </div>
+            </div>
+            <!-- END: Image Placeholder - Profile/Logo -->
+
+            <div class="card-bg p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-primary-light mb-2">Our Content & Style</h3>
+                <p class="text-gray-200 leading-relaxed">
+                    Pure_Ben specializes in high-energy, competitive gaming streams focused primarily on FPS and strategy titles, complemented by insightful hardware reviews and lifestyle vlogs. Our audience tunes in for genuine reactions, skilled gameplay, and a community-driven atmosphere. We pride ourselves on creating authentic, long-term connections with both our viewers and our brand partners.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. Audience & Demographics -->
+        <section id="audience" class="mb-12 pt-8">
+            <h2 class="text-3xl font-bold text-primary mb-4 border-b-2 border-primary pb-2">II. Audience Profile: Engaged & Loyal</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card-bg p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-light mb-3">Key Demographics</h3>
+                    <ul class="space-y-2 text-gray-200">
+                        <!-- Fixes: Removed backslashes -->
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zM9.018 13.91l3.056-3.794L16 16.5V19h-2v-3.79L12.5 13 10 15.5l-2-2-3-3-3 3.75V19H4v-5.5l4-5 1.018 1.41z"></path></svg>Age Range: 18 - 35 (78%)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zM9.018 13.91l3.056-3.794L16 16.5V19h-2v-3.79L12.5 13 10 15.5l-2-2-3-3-3 3.75V19H4v-5.5l4-5 1.018 1.41z"></path></svg>Gender: Male (65%), Female (35%)</li>
+                        <!-- Update: Changed location to United Kingdom -->
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zM9.018 13.91l3.056-3.794L16 16.5V19h-2v-3.79L12.5 13 10 15.5l-2-2-3-3-3 3.75V19H4v-5.5l4-5 1.018 1.41z"></path></svg>Location: United Kingdom (60%)</li>
+                    </ul>
+                </div>
+
+                <div class="card-bg p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary-light mb-3">Audience Interests</h3>
+                    <ul class="space-y-2 text-gray-200">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"></path></svg>PC Gaming Hardware & Peripherals</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"></path></svg>Esports and Competitive Titles (FPS, MOBA)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"></path></svg>Streaming Services & Entertainment Platforms</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- START: Image Placeholder - Content Example/Screenshot (Between Audience and Metrics) -->
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-primary mb-4 font-orbitron">Sample Content & Visual Branding</h3>
+            <div class="w-full h-64 bg-secondary-light border-4 border-primary rounded-xl flex items-center justify-center text-lg font-bold text-primary-light italic shadow-2xl">
+                [High-Quality Stream Screenshot or Content Example]
+            </div>
+            <p class="text-center text-sm text-gray-400 mt-2">Replace this box with a striking image of PURE_BEN's typical stream or content style.</p>
+        </div>
+        <!-- END: Image Placeholder - Content Example/Screenshot -->
+
+        <!-- 3. Reach and Statistics -->
+        <section id="reach" class="mb-12 pt-8">
+            <h2 class="text-3xl font-bold text-primary mb-4 border-b-2 border-primary pb-2">III. Platform Metrics: Total Reach</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Stat Card 1 -->
+                <div class="stat-card card-bg p-6 rounded-xl border-t-4 border-primary shadow-xl text-center">
+                    <p class="text-4xl font-extrabold text-primary-light">380K+</p>
+                    <p class="text-lg font-medium text-gray-200 mt-1">Total Followers</p>
+                    <p class="text-sm text-gray-400 mt-1">Across all streaming platforms (Twitch, YouTube, TikTok).</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="stat-card card-bg p-6 rounded-xl border-t-4 border-primary shadow-xl text-center">
+                    <p class="text-4xl font-extrabold text-primary-light">4.2K+</p>
+                    <p class="text-lg font-medium text-gray-200 mt-1">Average Concurrent Viewers</p>
+                    <p class="text-sm text-gray-400 mt-1">Consistent viewership during peak hours (Last 90 days).</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="stat-card card-bg p-6 rounded-xl border-t-4 border-primary shadow-xl text-center">
+                    <p class="text-4xl font-extrabold text-primary-light">1.2M+</p>
+                    <p class="text-lg font-medium text-gray-200 mt-1">Monthly VOD Views</p>
+                    <p class="text-sm text-gray-400 mt-1">Strong post-stream engagement on YouTube/Clips.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Partnership Opportunities -->
+        <section id="opportunities" class="mb-12 pt-8">
+            <h2 class="text-3xl font-bold text-primary mb-6 border-b-2 border-primary pb-2">IV. Sponsorship Packages & Opportunities</h2>
+
+            <div class="space-y-8">
+                <!-- Opportunity Card 1: Stream Integration -->
+                <div class="card-bg p-6 rounded-xl shadow-lg border-l-4 border-primary-light flex flex-col md:flex-row items-start md:items-center">
+                    <div class="flex-grow mb-4 md:mb-0">
+                        <h3 class="text-2xl font-bold text-primary-light mb-1">Dedicated Stream Integration (Tier 1)</h3>
+                        <p class="text-gray-300 mb-3">Exclusive sponsorship for a 3-hour stream. Includes verbal ad reads, dedicated graphics, and pinned chat links.</p>
+                        <ul class="list-disc pl-5 text-sm text-gray-400">
+                            <li>3x live mentions (start, middle, end).</li>
+                            <li>Product used live during the stream (where applicable).</li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 ml-0 md:ml-6 text-left md:text-right">
+                        <p class="text-4xl font-extrabold text-primary">$1,500</p>
+                        <p class="text-sm text-gray-400">per 3-hour session</p>
+                    </div>
+                </div>
+
+                <!-- Opportunity Card 2: YouTube Review -->
+                <div class="card-bg p-6 rounded-xl shadow-lg border-l-4 border-primary-light flex flex-col md:flex-row items-start md:items-center">
+                    <div class="flex-grow mb-4 md:mb-0">
+                        <h3 class="text-2xl font-bold text-primary-light mb-1">Dedicated YouTube Review / VOD</h3>
+                        <p class="text-gray-300 mb-3">A permanent, professionally edited video (8-12 minutes) dedicated to reviewing your product or service.</p>
+                        <ul class="list-disc pl-5 text-sm text-gray-400">
+                            <li>Promoted in stream and across all social media for 7 days.</li>
+                            <li>High-quality long-term lead generation and SEO.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-shrink-0 ml-0 md:ml-6 text-left md:text-right">
+                        <p class="text-4xl font-extrabold text-primary">$3,000</p>
+                        <p class="text-sm text-gray-400">per video</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Information -->
+        <section id="contact" class="mb-12 pt-8">
+            <h2 class="text-3xl font-bold text-primary mb-4 border-b-2 border-primary pb-2">V. Contact for Custom Packages</h2>
+            <div class="card-bg p-6 rounded-xl shadow-lg text-center">
+                <p class="text-lg text-gray-300 mb-4">
+                    We specialize in creating custom content that aligns perfectly with your campaign goals. Reach out to discuss multi-platform bundles or long-term brand ambassadorships.
+                </p>
+                <div class="space-y-2">
+                    <p class="text-2xl font-semibold text-primary">Brand Management</p>
+                    <p class="text-lg text-gray-200 font-medium">Email: <a href="mailto:partnerships@pureben.com" class="text-primary hover:underline">partnerships@pureben.com</a></p>
+                    <p class="text-lg text-gray-200 font-medium">Discord: Pure_Ben#0420</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-light text-white py-6 mt-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:lg:px-8 text-center text-sm opacity-70">
+            &copy; 2024 Pure_Ben. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
