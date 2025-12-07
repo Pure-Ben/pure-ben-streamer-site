@@ -1,13 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PURE_BEN - Content Creator & Streamer</title>
-    <!-- Google Fonts: Inter for UI, Orbitron for 'Gaming' feel -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
@@ -87,6 +84,8 @@
             background-color: var(--primary);
             color: white;
             box-shadow: 0 0 15px var(--primary-glow);
+	    /* NEW: Drop shadow for white text to improve contrast on yellow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         .btn-primary:hover {
@@ -541,7 +540,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="container">
             <nav>
@@ -556,16 +554,14 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="social-icons">
-                    <!-- ACTION: REPLACE 'YOUR_TWITCH_URL_HERE' with your actual links -->
                     <a href="https://www.twitch.tv/pure_ben"><i data-lucide="twitch"></i></a>
                     <a href="https://www.youtube.com/purebenben"><i data-lucide="youtube"></i></a>
-                    <a href="https://x.com/pure_ben"><i data-lucide="twitter"></i></a>
+                    <a href="https://www.x.com/pure_ben"><i data-lucide="twitter"></i></a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -573,19 +569,15 @@
                     <h1>NEXT LEVEL <br><span>ENTERTAINMENT</span></h1>
                     <p>Analysis. Critique. High-banter gameplay. Join the community where gaming culture meets critical thinking.</p>
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <!-- 'Watch Live' Button -->
-                        <!-- ACTION: REPLACE 'YOUR_TWITCH_URL_HERE' with your Twitch Stream URL -->
                         <a href="twitch.tv/pure_ben" class="btn btn-primary">
                             <i data-lucide="twitch"></i> Watch Live
                         </a>
-                        <!-- 'Latest Uploads' Button -->
                         <a href="#videos" class="btn btn-outline">
                             Latest Uploads
                         </a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Placeholder for Streamer/Character Art -->
                     <div class="live-indicator"><i data-lucide="radio"></i> LIVE NOW</div>
                     <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gaming Setup">
                 </div>
@@ -593,27 +585,22 @@
         </div>
     </section>
 
-    <!-- Key Stats - MANUAL UPDATE SECTION 1 -->
     <div class="stats-bar">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <!-- ACTION: UPDATE YOUTUBE SUB COUNT HERE -->
                     <h3>260+</h3> 
                     <p>YouTube Subs</p>
                 </div>
                 <div class="stat-item">
-                    <!-- ACTION: UPDATE TWITCH FOLLOWER COUNT HERE -->
                     <h3>690+</h3>
                     <p>Twitch Followers</p>
                 </div>
                 <div class="stat-item">
-                    <!-- ACTION: UPDATE AVERAGE CONCURRENT VIEWERS HERE -->
                     <h3>6.2</h3>
                     <p>Avg Concurrent</p>
                 </div>
                 <div class="stat-item">
-                    <!-- ACTION: UPDATE TOTAL VIEWS HERE -->
                     <h3>46K+</h3>
                     <p>Total Views</p>
                 </div>
@@ -621,7 +608,6 @@
         </div>
     </div>
 
-    <!-- Latest Content -->
     <section id="videos" class="latest-content">
         <div class="container">
             <div class="section-header">
@@ -629,60 +615,58 @@
                     <h2 class="section-title">Latest Content</h2>
                     <p class="section-subtitle">Essays, Reviews, and Highlights</p>
                 </div>
-                <!-- ACTION: REPLACE 'YOUR_YOUTUBE_URL_HERE' with your YouTube Channel URL -->
-                <a href="https://www.youtube.com/purebenben" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 16px;">View Channel <i data-lucide="arrow-right" size="16"></i></a>
+                <a href="youtube.com/purebenben" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 16px;">View Channel <i data-lucide="arrow-right" size="16"></i></a>
             </div>
 
             <div class="video-grid">
-                <!-- Video 1 (Placeholder) -->
-                <div class="video-card">
+                <a href="https://youtu.be/l2tyN0VVw5I" class="video-card">
                     <div class="thumbnail-container">
-                        <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video Thumb">
+                        <img src="https://i9.ytimg.com/vi_webp/l2tyN0VVw5I/mqdefault.webp?v=68cc70ec&sqp=CIjt18kG&rs=AOn4CLCg7rSBWG6bzgI2-EnjEWYOeae7sw" alt="Video Thumbnail: ▷ I feel weird about AI and this is why - Pure_Ben!">
                         <div class="play-btn"><i data-lucide="play" fill="white" color="white"></i></div>
                     </div>
                     <div class="video-info">
-                        <h3>The State of RPGs in 2024: A Critical Analysis</h3>
+                        <h3>▷ I feel weird about AI and this is why - Pure_Ben!</h3>
                         <div class="video-meta">
-                            <span><i data-lucide="eye" size="14"></i> 250K Views</span>
-                            <span>2 days ago</span>
+                            <span>272 Views</span>
+                            <span>•</span>
+                            <span>18/09/2025</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 
-                <!-- Video 2 (Placeholder) -->
-                <div class="video-card">
+                <a href="https://youtu.be/Zw3xibv6LUg" class="video-card">
                     <div class="thumbnail-container">
-                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video Thumb">
+                        <img src="https://i9.ytimg.com/vi/Zw3xibv6LUg/mqdefault.jpg?v=6841eb29&sqp=CLTv18kG&rs=AOn4CLC8vpbR_A5kUdbTWpFuafcFo9_k2w" alt="Video Thumbnail: ▷ Reviewing the ONLY 40K Twin Stick Shooter | Kill Team Retro Review - Pure_Ben!">
                         <div class="play-btn"><i data-lucide="play" fill="white" color="white"></i></div>
                     </div>
                     <div class="video-info">
-                        <h3>Why Mechanics Matter More Than Graphics</h3>
+                        <h3>▷ Reviewing the ONLY 40K Twin Stick Shooter | Kill Team Retro Review - Pure_Ben!</h3>
                         <div class="video-meta">
-                            <span><i data-lucide="eye" size="14"></i> 180K Views</span>
-                            <span>1 week ago</span>
+                            <span>373 Views</span>
+                            <span>•</span>
+                            <span>06/06/2025</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Video 3 (Placeholder) -->
-                <div class="video-card">
+                <a href="https://youtu.be/anN2868ZERU" class="video-card">
                     <div class="thumbnail-container">
-                        <img src="https://images.unsplash.com/photo-1593305841991-05c29736cec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Video Thumb">
+                        <img src="https://i9.ytimg.com/vi_webp/anN2868ZERU/mqdefault.webp?v=672e744f&sqp=CODx18kG&rs=AOn4CLA9EOl32JZyi6ZqwGDJgQrOSHXkOg" alt="Video Thumbnail: ▷ What's Up With Ecosystem V1.0? First Impressions at Length - Pure_Ben!">
                         <div class="play-btn"><i data-lucide="play" fill="white" color="white"></i></div>
                     </div>
                     <div class="video-info">
-                        <h3>Indie Gem Showcase: Hidden Treasures</h3>
+                        <h3>▷ What's Up With Ecosystem V1.0? First Impressions at Length - Pure_Ben!</h3>
                         <div class="video-meta">
-                            <span><i data-lucide="eye" size="14"></i> 120K Views</span>
-                            <span>2 weeks ago</span>
+                            <span>84 Views</span>
+                            <span>•</span>
+                            <span>08/11/2024</span>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Media Kit Section -->
     <section id="mediakit" class="media-kit">
         <div class="container">
             <div class="section-header">
@@ -690,51 +674,40 @@
                     <h2 class="section-title">Media Kit</h2>
                     <p class="section-subtitle">Partnerships & Demographics</p>
                 </div>
-                <!-- ACTION: Ensure 'pure_ben_media_kit.pdf' is in the same folder as this HTML file -->
                 <a href="pure_ben_media_kit.pdf" class="btn btn-primary"><i data-lucide="download"></i> Download PDF</a>
             </div>
 
             <div class="kit-container">
                 <div class="kit-grid">
-                    <!-- Left: Audience - MANUAL UPDATE SECTION 2 -->
                     <div class="demographics">
                         <h4>Audience Demographics</h4>
                         
-                        <!-- Age Demo 1 -->
                         <div class="demo-bar">
                             <div class="demo-label">
                                 <span>Age 25-34</span>
-                                <!-- ACTION: UPDATE PERCENTAGE TEXT HERE -->
-                                <span>55%</span> 
+                                <span>55%</span>
                             </div>
                             <div class="progress-bg">
-                                <!-- ACTION: UPDATE CSS WIDTH PERCENTAGE HERE -->
                                 <div class="progress-fill" style="width: 55%"></div>
                             </div>
                         </div>
 
-                        <!-- Age Demo 2 -->
                         <div class="demo-bar">
                             <div class="demo-label">
                                 <span>Age 18-24</span>
-                                <!-- ACTION: UPDATE PERCENTAGE TEXT HERE -->
                                 <span>35%</span>
                             </div>
                             <div class="progress-bg">
-                                <!-- ACTION: UPDATE CSS WIDTH PERCENTAGE HERE -->
                                 <div class="progress-fill" style="width: 35%"></div>
                             </div>
                         </div>
 
-                        <!-- Country Demo -->
                         <div class="demo-bar">
                             <div class="demo-label">
                                 <span>United Kingdom</span>
-                                <!-- ACTION: UPDATE PERCENTAGE TEXT HERE -->
                                 <span>62%</span>
                             </div>
                             <div class="progress-bg">
-                                <!-- ACTION: UPDATE CSS WIDTH PERCENTAGE HERE -->
                                 <div class="progress-fill" style="width: 62%"></div>
                             </div>
                         </div>
@@ -749,11 +722,10 @@
                         </div>
                     </div>
 
-                    <!-- Right: Bio & Rates -->
                     <div class="bio-box">
                         <h4>About The Channel</h4>
                         <p style="color: var(--text-muted); margin-bottom: 20px;">
-                            Pure_Ben is dedicated to deep-dive analysis of game design, industry trends, and high-level gameplay. This content focuses on an educated, engaged audience that values quality over hype.
+                            Pure_Ben is dedicated to deep-dive analysis of game design, industry trends, and high-level gameplay. This content focuses on an educated, engaged audience that values quality and consumer rights over hype.
                         </p>
                         
                         <h4>Content Opportunities</h4>
@@ -777,7 +749,6 @@
         </div>
     </section>
 
-    <!-- Stream Schedule -->
     <section id="schedule" style="padding: 80px 0;">
         <div class="container">
             <h2 class="section-title" style="text-align: center;">Weekly Schedule</h2>
@@ -817,14 +788,12 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-box">
                 <h2>Work With Me</h2>
                 <p style="color: var(--text-muted);">For business inquiries, sponsorships, and collaborations.</p>
                 
-                <!-- ACTION: REPLACE 'YOUR_EMAIL@EXAMPLE.COM' with your actual email address -->
                 <form 
                     action="mailto:srspurebenbznz@gmail.com?subject=Inquiry%20from%20PURE_BEN%20Website" 
                     method="post" 
@@ -842,10 +811,9 @@
     <footer>
         <div class="container">
             <div class="social-icons" style="justify-content: center; margin-bottom: 20px;">
-                <!-- ACTION: REPLACE these with your actual links -->
                 <a href="https://www.twitch.tv/pure_ben"><i data-lucide="twitch"></i></a>
                 <a href="https://www.youtube.com/purebenben"><i data-lucide="youtube"></i></a>
-                <a href="https://x.com/pure_ben"><i data-lucide="twitter"></i></a>
+                <a href="https://www.x.com/pure_ben"><i data-lucide="twitter"></i></a>
                 <a href="https://www.instagram.com/pure__ben"><i data-lucide="instagram"></i></a>
             </div>
             <p>&copy; 2025 Pure_Ben Content. All rights reserved.</p>
