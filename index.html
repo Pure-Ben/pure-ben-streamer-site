@@ -55,9 +55,14 @@
         ul { list-style: none; }
 
         .container {
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+        }
+
+        img, video, canvas {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Utility Classes */
@@ -84,15 +89,13 @@
             background-color: var(--primary);
             color: white;
             box-shadow: 0 0 15px var(--primary-glow);
-	    /* NEW: Drop shadow for white text to improve contrast on yellow */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
-	/* NEW: Icon-specific drop shadow for better clarity */
         .btn-primary svg {
             filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.7));
         }
-	
+    
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 25px var(--primary-glow);
@@ -178,7 +181,6 @@
             align-items: center;
         }
 
-        /* Background Grid Effect */
         .hero::before {
             content: '';
             position: absolute;
@@ -229,27 +231,53 @@
             border: 2px solid var(--border);
         }
         
+        /* LIVE INDICATOR STYLING */
         .live-indicator {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #ff0000;
+            background: var(--red-live);
             color: white;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.8rem;
+            font-weight: 800;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 6px;
-            box-shadow: 0 0 10px rgba(255,0,0,0.5);
-            animation: pulse 2s infinite;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            animation: pulse 1.5s infinite ease-in-out;
+            transition: all 0.5s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 5;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .live-indicator.status-offline {
+            background: #444;
+            box-shadow: none;
+            animation: none;
+            opacity: 0.8;
+            border-color: transparent;
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+            0% { 
+                transform: scale(1); 
+                background-color: rgba(255, 0, 0, 1);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+            70% { 
+                transform: scale(1.05); 
+                background-color: rgba(255, 0, 0, 0.9);
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+            }
+            100% { 
+                transform: scale(1); 
+                background-color: rgba(255, 0, 0, 1);
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+            }
         }
 
         /* Stats Bar */
@@ -446,29 +474,31 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             display: flex;
-	    flex-direction: column;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-	    text-align: center;
+            text-align: center;
             color: var(--text-muted);
             font-weight: bold;
             opacity: 0.6;
         }
 
-        /* Schedule */
+        /* Schedule Grid - FIXED FOR MOBILE */
         .schedule-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            /* Changed auto-fit to fixed 7 columns to prevent wrapping */
+            grid-template-columns: repeat(7, 1fr); 
+            gap: 10px;
             margin-top: 30px;
         }
 
         .schedule-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 20px;
+            padding: 15px 5px; /* Reduced padding for mobile */
             border-radius: 8px;
             text-align: center;
+            min-width: 0; /* Allows grid items to shrink below content size */
         }
 
         .schedule-card.active {
@@ -479,8 +509,15 @@
         .day {
             color: var(--primary);
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             display: block;
+            font-size: 0.9rem;
+        }
+        
+        .schedule-card span:not(.day) {
+            font-size: 0.75rem;
+            display: block;
+            white-space: nowrap; /* Prevents text from breaking layout */
         }
 
         /* Contact Form */
@@ -526,7 +563,7 @@
             color: var(--text-muted);
         }
 
-        /* Mobile Responsive */
+        /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -537,11 +574,19 @@
             .hero-text p { margin: 0 auto 30px; }
             .hero-image { order: -1; margin-bottom: 30px; }
             
-            .nav-links { display: none; } /* Simplified for demo */
+            .nav-links { display: none; }
             
             .kit-grid { grid-template-columns: 1fr; }
             
             .stats-grid { gap: 40px; }
+
+            /* Specific schedule adjustments for very small screens */
+            .schedule-grid {
+                gap: 5px;
+            }
+            .day {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -557,7 +602,7 @@
                 <ul class="nav-links">
                     <li><a href="#videos">Videos</a></li>
                     <li><a href="#schedule">Schedule</a></li>
-                    <li><a href="#mediakit" class="active">Media Kit</a></li>
+                    <li><a href="#mediakit">Media Kit</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="social-icons">
@@ -628,7 +673,7 @@
             <div class="video-grid">
                 <a href="https://youtu.be/l2tyN0VVw5I" class="video-card">
                     <div class="thumbnail-container">
-                        <img src="https://i9.ytimg.com/vi_webp/l2tyN0VVw5I/mqdefault.webp?v=68cc70ec&sqp=CIjt18kG&rs=AOn4CLCg7rSBWG6bzgI2-EnjEWYOeae7sw" alt="Video Thumbnail: ▷ I feel weird about AI and this is why - Pure_Ben!">
+                        <img src="https://img.youtube.com/vi/l2tyN0VVw5I/maxresdefault.jpg" alt="AI Video Thumbnail" onerror="this.src='https://img.youtube.com/vi/l2tyN0VVw5I/hqdefault.jpg'">
                         <div class="play-btn"><i data-lucide="play" fill="white" color="white"></i></div>
                     </div>
                     <div class="video-info">
@@ -643,11 +688,11 @@
                 
                 <a href="https://youtu.be/Zw3xibv6LUg" class="video-card">
                     <div class="thumbnail-container">
-                        <img src="https://i9.ytimg.com/vi/Zw3xibv6LUg/mqdefault.jpg?v=6841eb29&sqp=CLTv18kG&rs=AOn4CLC8vpbR_A5kUdbTWpFuafcFo9_k2w" alt="Video Thumbnail: ▷ Reviewing the ONLY 40K Twin Stick Shooter | Kill Team Retro Review - Pure_Ben!">
+                        <img src="https://img.youtube.com/vi/Zw3xibv6LUg/maxresdefault.jpg" alt="Warhammer Video Thumbnail" onerror="this.src='https://img.youtube.com/vi/Zw3xibv6LUg/hqdefault.jpg'">
                         <div class="play-btn"><i data-lucide="play" fill="white" color="white"></i></div>
                     </div>
                     <div class="video-info">
-                        <h3>▷ Reviewing the ONLY 40K Twin Stick Shooter | Kill Team Retro Review - Pure_Ben!</h3>
+                        <h3>▷ Reviewing the ONLY 40K Twin Stick Shooter</h3>
                         <div class="video-meta">
                             <span>373 Views</span>
                             <span>•</span>
@@ -658,11 +703,11 @@
 
                 <a href="https://youtu.be/anN2868ZERU" class="video-card">
                     <div class="thumbnail-container">
-                        <img src="https://i9.ytimg.com/vi_webp/anN2868ZERU/mqdefault.webp?v=672e744f&sqp=CODx18kG&rs=AOn4CLA9EOl32JZyi6ZqwGDJgQrOSHXkOg" alt="Video Thumbnail: ▷ What's Up With Ecosystem V1.0? First Impressions at Length - Pure_Ben!">
+                        <img src="https://img.youtube.com/vi/anN2868ZERU/maxresdefault.jpg" alt="Ecosystem Video Thumbnail" onerror="this.src='https://img.youtube.com/vi/anN2868ZERU/hqdefault.jpg'">
                         <div class="play-btn"><i data-lucide="play" fill="white" color="white"></i></div>
                     </div>
                     <div class="video-info">
-                        <h3>▷ What's Up With Ecosystem V1.0? First Impressions at Length - Pure_Ben!</h3>
+                        <h3>▷ What's Up With Ecosystem V1.0?</h3>
                         <div class="video-meta">
                             <span>84 Views</span>
                             <span>•</span>
@@ -688,36 +733,9 @@
                 <div class="kit-grid">
                     <div class="demographics">
                         <h4>Audience Demographics</h4>
-                        
-                        <div class="demo-bar">
-                            <div class="demo-label">
-                                <span>Age 25-34</span>
-                                <span>55%</span>
-                            </div>
-                            <div class="progress-bg">
-                                <div class="progress-fill" style="width: 55%"></div>
-                            </div>
-                        </div>
-
-                        <div class="demo-bar">
-                            <div class="demo-label">
-                                <span>Age 18-24</span>
-                                <span>35%</span>
-                            </div>
-                            <div class="progress-bg">
-                                <div class="progress-fill" style="width: 35%"></div>
-                            </div>
-                        </div>
-
-                        <div class="demo-bar">
-                            <div class="demo-label">
-                                <span>United Kingdom</span>
-                                <span>62%</span>
-                            </div>
-                            <div class="progress-bg">
-                                <div class="progress-fill" style="width: 62%"></div>
-                            </div>
-                        </div>
+                        <div class="demo-bar"><div class="demo-label"><span>Age 25-34</span><span>55%</span></div><div class="progress-bg"><div class="progress-fill" style="width: 55%"></div></div></div>
+                        <div class="demo-bar"><div class="demo-label"><span>Age 18-24</span><span>35%</span></div><div class="progress-bg"><div class="progress-fill" style="width: 35%"></div></div></div>
+                        <div class="demo-bar"><div class="demo-label"><span>United Kingdom</span><span>62%</span></div><div class="progress-bg"><div class="progress-fill" style="width: 62%"></div></div></div>
                         
                         <div style="margin-top: 30px;">
                             <h4>Previous Partners</h4>
@@ -734,21 +752,12 @@
                         <p style="color: var(--text-muted); margin-bottom: 20px;">
                             Pure_Ben is dedicated to deep-dive analysis of game design, industry trends, and high-level gameplay. This content focuses on an educated, engaged audience that values quality and consumer rights over hype.
                         </p>
-                        
                         <h4>Content Opportunities</h4>
                         <ul style="margin-top: 15px; display: grid; gap: 10px;">
-                            <li style="display:flex; align-items:center; gap:10px;">
-                                <i data-lucide="check-circle" class="text-primary"></i> Dedicated Product Integration
-                            </li>
-                            <li style="display:flex; align-items:center; gap:10px;">
-                                <i data-lucide="check-circle" class="text-primary"></i> Live Stream Sponsorship
-                            </li>
-                            <li style="display:flex; align-items:center; gap:10px;">
-                                <i data-lucide="check-circle" class="text-primary"></i> Social Media Activation
-                            </li>
-                            <li style="display:flex; align-items:center; gap:10px;">
-                                <i data-lucide="check-circle" class="text-primary"></i> Game Gameplay/Review
-                            </li>
+                            <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" class="text-primary"></i> Dedicated Product Integration</li>
+                            <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" class="text-primary"></i> Live Stream Sponsorship</li>
+                            <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" class="text-primary"></i> Social Media Activation</li>
+                            <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" class="text-primary"></i> Game Gameplay/Review</li>
                         </ul>
                     </div>
                 </div>
@@ -770,8 +779,8 @@
                 </div>
                 <div class="schedule-card active">
                     <span class="day">WED</span>
-                    <span>8:00 PM GMT</span>
-                    <div style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">Indie Games</div>
+                    <span>8:00 PM</span>
+                    <span>Indie Games</span>
                 </div>
                 <div class="schedule-card">
                     <span class="day">THU</span>
@@ -779,13 +788,13 @@
                 </div>
                 <div class="schedule-card active">
                     <span class="day">FRI</span>
-                    <span>8:00 PM GMT</span>
-                    <div style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">Co-Creating</div>
+                    <span>8:00 PM</span>
+                    <span>Co-Creating</span>
                 </div>
                 <div class="schedule-card active">
                     <span class="day">SAT</span>
-                    <span>8:00 PM GMT</span>
-                    <div style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">Community Night</div>
+                    <span>8:00 PM</span>
+                    <span>Community</span>
                 </div>
                 <div class="schedule-card">
                     <span class="day">SUN</span>
@@ -799,16 +808,10 @@
         <div class="container">
             <div class="contact-box">
                 <h2>Work With Me</h2>
-                <p style="color: var(--text-muted);">For business inquiries, sponsorships, and collaborations.</p>
-                
-                <form 
-                    action="mailto:srspurebenbznz@gmail.com?subject=Inquiry%20from%20PURE_BEN%20Website" 
-                    method="post" 
-                    enctype="text/plain"
-                >
-                    <input type="text" name="Name_Brand" placeholder="Name / Brand" required>
+                <form action="mailto:srspurebenbznz@gmail.com" method="post" enctype="text/plain">
+                    <input type="text" name="Name" placeholder="Name / Brand" required>
                     <input type="email" name="Email" placeholder="Business Email" required>
-                    <textarea rows="5" name="Project_Details" placeholder="Project Details" required></textarea>
+                    <textarea rows="5" name="Details" placeholder="Project Details" required></textarea>
                     <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
                 </form>
             </div>
@@ -817,31 +820,63 @@
 
     <footer>
         <div class="container">
+            <!-- START FOOTER SOCIAL ICONS SECTION -->
             <div class="social-icons" style="justify-content: center; margin-bottom: 20px;">
-                <a href="https://www.twitch.tv/pure_ben"><i data-lucide="twitch"></i></a>
-                <a href="https://www.youtube.com/purebenben"><i data-lucide="youtube"></i></a>
-                <a href="https://www.x.com/pure_ben"><i data-lucide="twitter"></i></a>
-                <a href="https://www.instagram.com/pure__ben"><i data-lucide="instagram"></i></a>
+                <a href="https://www.twitch.tv/pure_ben" title="Twitch"><i data-lucide="twitch"></i></a>
+                <a href="https://www.youtube.com/purebenben" title="YouTube"><i data-lucide="youtube"></i></a>
+                <a href="https://www.instagram.com/pure__ben" title="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="https://www.x.com/pure_ben" title="X (Twitter)"><i data-lucide="twitter"></i></a>
             </div>
+            <!-- END FOOTER SOCIAL ICONS SECTION -->
             <p>&copy; 2025 Pure_Ben Content. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Initializes Lucide icons
         lucide.createIcons();
+
+        const indicator = document.getElementById('live-indicator');
+        const statusText = document.getElementById('live-status-text');
+
+        /**
+         * AUTOMATED LIVE CHECK (NIGHTBOT METHOD)
+         * This uses the Nightbot "uptime" endpoint which is publicly accessible.
+         * If the channel is offline, Nightbot returns a string containing "offline".
+         */
+        async function checkTwitchStatus() {
+            // Replace with your actual Twitch username
+            const twitchUser = 'pure_ben'; 
+            
+            try {
+                // Nightbot's uptime API is free and doesn't require complex keys/secrets for read-only access
+                const response = await fetch(`https://api.nightbot.tv/demos/uptime?user=${twitchUser}`);
+                const data = await response.text();
+                
+                // Logic: Nightbot says "Channel is offline" if you aren't live.
+                const isOffline = data.toLowerCase().includes('offline');
+
+                if (!isOffline && data.length > 5) {
+                    // You are live!
+                    indicator.classList.remove('status-offline');
+                    statusText.innerText = 'LIVE NOW';
+                } else {
+                    // You are offline
+                    indicator.classList.add('status-offline');
+                    statusText.innerText = 'OFFLINE';
+                }
+            } catch (error) {
+                console.error('Status check failed:', error);
+                // Fallback to offline on error to be safe
+                indicator.classList.add('status-offline');
+                statusText.innerText = 'OFFLINE';
+            }
+        }
+
+        // Run on load
+        checkTwitchStatus();
         
-        // Add simple hover effect for stats
-        const stats = document.querySelectorAll('.stat-item');
-        stats.forEach(stat => {
-            stat.addEventListener('mouseenter', () => {
-                stat.style.transform = 'scale(1.05)';
-                stat.style.transition = 'transform 0.2s ease';
-            });
-            stat.addEventListener('mouseleave', () => {
-                stat.style.transform = 'scale(1)';
-            });
-        });
+        // Check every 2 minutes for better responsiveness
+        setInterval(checkTwitchStatus, 120000);
     </script>
 </body>
 </html>
