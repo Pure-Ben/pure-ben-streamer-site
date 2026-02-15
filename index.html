@@ -205,7 +205,8 @@
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            /* Use clamp to fluidly scale text size and prevent overflow */
+            font-size: clamp(2rem, 8vw, 4rem);
             line-height: 1.1;
             margin-bottom: 20px;
         }
@@ -554,8 +555,20 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
-            .hero-text h1 { font-size: 2.5rem; }
+            .container {
+                width: 92%; /* Slightly wider container for more horizontal space */
+            }
+            .hero {
+                padding: 80px 0;
+            }
+            .hero-content { 
+                grid-template-columns: 1fr; 
+                text-align: center; 
+                gap: 40px;
+            }
+            .hero-text h1 span {
+                white-space: nowrap; /* Force the brand word onto one line */
+            }
             .nav-links { display: none; }
             .kit-grid { grid-template-columns: 1fr; }
             .schedule-grid { 
@@ -609,7 +622,7 @@
                 <div class="hero-text">
                     <h1>NEXT LEVEL <br><span>ENTERTAINMENT</span></h1>
                     <p>Analysis. Critique. High-banter gameplay. Join the community where gaming culture meets critical thinking.</p>
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
                         <a href="https://www.twitch.tv/pure_ben" class="btn btn-primary">
                             <i data-lucide="twitch"></i> Watch Live
                         </a>
@@ -622,7 +635,6 @@
                     <a href="https://www.twitch.tv/pure_ben" class="follow-cta">
                         <i data-lucide="heart"></i> FOLLOW ON TWITCH
                     </a>
-                    <!-- CHANGED: Linked to your GitHub image -->
                     <img src="hero-image.jpg" alt="Pure_Ben Hero Image">
                 </div>
             </div>
